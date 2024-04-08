@@ -20,7 +20,7 @@ def import_and_predict(file, model):
 # loading the h5 model from the 'models' directory and saving it in a cache memory
 @st.cache(allow_output_mutation=True)  # to prevent loading the model multiple times every time the app is run
 def load_h5_model():  # function to load the model
-    model_path = './models/efficientnet_model_0766.h5'
+    model_path = './models/efficientnet_model_0769.h5'  # selecting the desired model
     model = load_model(model_path)
     return model
 
@@ -37,7 +37,8 @@ st.write("""
 file = st.file_uploader("Please upload an image containing a facial expression", type=["jpg", "png"])
 
 # making the prediction
-classes = ['Surprise', 'Sad', 'Happy', 'Neutral', 'Angry']
+classes = ['Angry', 'Happy', 'Neutral', 'Sad', 'Surprise']
+
 if file is None:
     st.text("Please upload an image file")
 else:
